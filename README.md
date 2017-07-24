@@ -65,11 +65,9 @@
 	
 	当要改变三角形的朝向时就必须重新复写样式，所以可以在less中庸匹配模式解决：
 		#box4 {
-	    width: 0;
-	    height: 0;
-	    overflow: hidden;
 	    .triangle(left);
 	    //如上，在使用时带个参数指明索要指向的方向
+	    //要改变默认值时：.triangle(left);
 		}
 
 		.triangle(top, @width: 10px, @color: pink) {
@@ -95,7 +93,53 @@
 	    border-color: transparent @color transparent transparent;
 	    border-style: dashed solid dashed dashed;
 		}
+		而匹配模式还有一个默认的值，就是无论匹配到上面哪一个，这一个都会被执{行：
+		.triangle(@_, @width:10px , @color:pink){
+		 	width: 0;
+	    height: 0;
+	    overflow: hidden;
+		}
+		
+#	六：运算
+	可以使用加减乘除的等运算
+	例子：
+		@test:200px;
+		#box{
+			width:(@test-20)*5;
+			color:#ccc-10;
+		}
 	
-	
-	
+# 嵌套规则
+	在指定一个盒子中某些元素的样式时：
+	比如说在这种情况下：
+		<div id="box5">
+			<a href="#">hello less</a>
+			<span>这是一个span</span>
+			<form>
+				<input type="button" name="" id="" value="hello" />
+			</form>
+		</div>
+	指定样式可以这样写：
+		#box5{
+    	height: 300px;
+    	width: 400px;
+    	border: solid 1px hotpink;
+    	padding: 15px;
+    	a{
+    		text-decoration: none;
+       	color: red; 
+       	&:hover{
+          color: cornflowerblue;
+       	}
+    	}
+	    span{
+	        font-size: 18px;
+	    }
+	    form{
+	        border: solid 1px pink;
+	        padding: 20px;
+	    }
+		}
+	//嵌套在其中表示指定在#box5这个元素盒子里面的a，span，form等元素
+	//而&符号表示其父级元素
 
