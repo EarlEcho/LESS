@@ -50,6 +50,50 @@
 			width:200px;
 			border:solid 1px pink;
 		}
-# 匹配模式(类似于JS中的判断语句)
+# 五：匹配模式(类似于JS中的判断语句)
+	例子：画三角形，因为三角形有四个不同的朝向，所以我们可以在CSS中预定义4个不同的方向，在使用时指明要选用的方向就可以。
+	通常画一个朝左的三角形是：
+	#box4 {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width:5px;
+    border-color: transparent pink transparent transparent;
+    border-style: dashed solid dashed dashed;
+	}
+	当要改变三角形的朝向时就必须重新复写样式，所以可以在less中庸匹配模式解决：
+	#box4 {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    .triangle(left);
+    //如上，在使用时带个参数指明索要指向的方向
+	}
+
+	.triangle(top, @width: 10px, @color: pink) {
+    border-width: @width;
+    border-color: transparent transparent @color transparent;
+    border-style: dashed dashed solid dashed;
+	}
+
+	.triangle(bottom, @width: 10px, @color: pink) {
+    border-width: @width;
+    border-color: @color transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+	}
+
+	.triangle(right, @width: 10px, @color: pink) {
+    border-width: @width;
+    border-color: transparent transparent transparent @color;
+    border-style: dashed dashed dashed solid;
+	}
+
+	.triangle(left, @width: 10px, @color: pink) {
+    border-width: @width;
+    border-color: transparent @color transparent transparent;
+    border-style: dashed solid dashed dashed;
+	}
+	
+	
 	
 
