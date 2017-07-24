@@ -11,9 +11,9 @@
 # 二：混合
     例子:定义一个混合:
 	.box-style{
-	    width：200px;
-	    height:200px;
-    	    border: solid 3px pink;
+            width：200px;
+            height:200px;
+            border: solid 3px pink;
 	}
     在盒子中使用它：
 	#box{
