@@ -109,7 +109,7 @@
 	    color:#ccc-10;
 	}
 	
-# 嵌套规则
+# 七：嵌套规则
 	在指定一个盒子中某些元素的样式时：
 	比如说在这种情况下：
 	<div id="box5">
@@ -143,3 +143,19 @@
 	//嵌套在其中表示指定在#box5这个元素盒子里面的a，span，form等元素
 	//而&符号表示其父级元素
 
+# 八：@arguments变量
+	@arguments包含了所有传递进来的参数，当你想单独处理每一个参数的时候可以这样写：
+	.borde-style(@width:30px , @color:red , @style:solid){
+		border:@arguments;
+		//即代替了之前的写法：border:(@width,@color,@style);
+	}
+	在盒子中使用它:
+	#box{
+		.border-style(40px);
+		//这是要改变默认值的写法，不需要改变就不带参数。
+	}
+	
+# 九：避免编译
+	有时候我们需要输出一些不正确的CSS语法或者使用一些LESS不认识的专有语法
+	要输出这样的值我们可以在字符串前面加上一个~：
+	例如：width：~‘ clac(100%-35)’;
