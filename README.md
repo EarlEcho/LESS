@@ -13,32 +13,32 @@
 	.box-style{
 	    width：200px;
 	    height:200px;
-    	    border: solid 3px pink;
-    	}
+    	border: solid 3px pink;
+	}
       在盒子中使用它：
-    	#box{
-    	    .box-style;
-    	    backgroud:gray;
-   	}
+	#box{
+    .box-style;
+    backgroud:gray;
+	}
 
 # 三：混合(带参数)
 	例子：定义一个带参数的混合
 	.boxAttr(@weight-height) {
-    	    width: @weight-height;
-    	    height: @weight-height;
-    	    border:solid 1px pink;
-    	}
+      width: @weight-height;
+      height: @weight-height;
+      border:solid 1px pink;
+	}
 	在盒子中使用它：
 	#box2{
-            .boxAttr(300px);
-   	}
+      .boxAttr(300px);
+	}
     
 # 四：混合(参数可带默认值)
 	例子:定义一个参数有默认值的混合
 	.border_radius(@radius:5px){
 	    -webkit-border-radius: @radius;
-    	    -moz-border-radius: @radius;
-   	    border-radius: @radius;
+    	-moz-border-radius: @radius;
+    	border-radius: @radius;
 	}
 	在盒子中使用它：
 	#box{
@@ -121,24 +121,24 @@
 	</div>
 	指定样式可以这样写：
 	#box5{
-    	    height: 300px;
-    	    width: 400px;
-    	    border: solid 1px hotpink;
-    	    padding: 15px;
-    	    a{
-    		text-decoration: none;
+      height: 300px;
+      width: 400px;
+      border: solid 1px hotpink;
+      padding: 15px;
+      a{
+    	    text-decoration: none;
        		color: red; 
        		&:hover{
          	    color: cornflowerblue;
        		}
-    	    }
-	   span{
+    	}
+	    span{
 	       	font-size: 18px;
 	    }
 	    form{
 	        border: solid 1px pink;
 	        padding: 20px;
-	   }
+	    }
 	}
 	//嵌套在其中表示指定在#box5这个元素盒子里面的a，span，form等元素
 	//而&符号表示其父级元素
