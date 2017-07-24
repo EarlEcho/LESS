@@ -35,14 +35,21 @@
     
 # 四：混合(参数可带默认值)
 	例子:定义一个参数有默认值的混合
-	.boxStyle(@border-width:5px,@width-hei:100px){
-		width: @width-hei;
-    height: @width-hei;
-    border: solid @border-width darkgreen;
-    }  
-	在盒子中使用它： 
-	#box3{ 
-    .boxStyle;
-    }
-
+	.border_radius(@radius:5px){
+		-webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+	}
+	在盒子中使用它：
+		#box{
+			.border_radius;
+			//使用.border_radius，不带后面的括号那么默认的border-radius就是5px
+			//如果在使用时想要改变border-radius的值，使用方法是：
+			//.border_radius(10px);
+			height:200px;
+			width:200px;
+			border:solid 1px pink;
+		}
+# 匹配模式(类似于JS中的判断语句)
+	
 
